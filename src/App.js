@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Carrinho from './componentes/Carrinho/Carrinho';
 
 class App extends React.Component {
 
@@ -47,6 +47,8 @@ class App extends React.Component {
    render(){
   return (
     <div className="App">
+      <Carrinho>
+      </Carrinho>
     </div>
   );
 }
