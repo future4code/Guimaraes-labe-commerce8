@@ -42,6 +42,9 @@ const produtos= [
   }
 ]  
 
+import Produtos from './componentes/Produtos/Produtos';
+import CardProdutos from './componentes/Produtos/CardProdutos';
+
 class App extends React.Component {
 
   state = {
@@ -85,6 +88,21 @@ class App extends React.Component {
       </div>
     );
   }
+
+
+   render(){
+     
+  return (
+    <div className="App">
+      <Carrinho>
+      </Carrinho>
+      <Produtos>
+          
+      </Produtos>
+
+    </div>
+  );
+}
 }
 
 export default App;
