@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Carrinho from './componentes/Carrinho/Carrinho';
+import Produtos from './componentes/Produtos/Produtos';
+import CardProdutos from './componentes/Produtos/CardProdutos';
+
 
 class App extends React.Component {
 
@@ -45,10 +48,15 @@ class App extends React.Component {
     ]
   }
    render(){
+     
   return (
     <div className="App">
       <Carrinho>
       </Carrinho>
+      <Produtos>
+          
+      </Produtos>
+
     </div>
   );
 }
