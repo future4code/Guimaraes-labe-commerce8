@@ -6,7 +6,7 @@ import ItemCarrinho from '../ItemCarrinho/ItemCarrinho';
 
 const CarrinhoContainer = styled.div`
     background-color: #7588b5;
-    width: 30vh;
+    width: 40vh;
     height: auto;
     margin-left: auto;
     margin-top: 20px;
@@ -47,12 +47,27 @@ const TotalPagar = styled.div`
     background-color: #dee2eb;
     grid-column: 1/3;
     height: 40px;
-    width: 30vh;
+    width: 40vh;
     margin-top: 15px;
     
 `
 
 class Carrinho extends React.Component{
+    state={
+        total:0
+    }
+    
+    static getDerivedStateFromProps(props, state){
+        let soma= 0;
+        if(props.produtosCarrinho){
+        props.produtosCarrinho.forEach(produto => {
+            soma +=produto.preco
+        });}
+        return {
+            total: soma
+        }
+    }
+    
     render(){
         return (
             <CarrinhoContainer>
@@ -60,8 +75,13 @@ class Carrinho extends React.Component{
                 <ContainerTitulo>
                     <Titulo>Carrinho de compras</Titulo>
                 </ContainerTitulo>
-                <ItemCarrinho/>
-                <TotalPagar> Total: R$ </TotalPagar>
+                {this.props.produtosCarrinho.map((produto)=>(
+                 <ItemCarrinho 
+                    produto={produto}
+                    removerProduto={this.props.removerProduto}
+                />))
+                }
+                <TotalPagar> Total: R${this.state.total} </TotalPagar>
             </CarrinhoContainer>
         );
 

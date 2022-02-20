@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import App from '../../App';
 
-const ContainerCompra = styled.div`
+const CardCompra = styled.div`
     background-color: #dee2eb;
     height: 40px;
-    width: 30vh;
+    width: 40vh;
     grid-column: 1/3;
     /* grid-row: 2/3; */
     display: flex;
@@ -23,15 +24,35 @@ const BotaoRemover = styled.button`
     border-radius: 20px;
 
 `
+const FotoProduto= styled.img`
+    width: 30px;
+    height: 30px;
+    align-self: flex-start;
+    margin-right: auto;
+`
+const Descricao= styled.b`
+    font-size: 12px;
+    margin-right: 15px;
+    
+`
 
 class ItemCarrinho extends React.Component{
-    render(){
-        return(
-            <ContainerCompra>
-                <BotaoRemover>Remover</BotaoRemover>
 
-            </ContainerCompra>
-        )
+    constructor({produto, removerProduto}) {
+        super({produto, removerProduto})
+    }
+    
+    render(){
+            return(
+                <CardCompra key={this.props.produto.id} >
+                    <FotoProduto src={this.props.produto.foto}></FotoProduto>
+                    <Descricao>{this.props.produto.descricao}</Descricao>
+                    <h4>R$ {this.props.produto.preco}</h4>
+                    <BotaoRemover onClick={() =>this.props.removerProduto(this.props.produto.id)}>Remover</BotaoRemover>
+                </CardCompra>
+            );
+        
+        
     }
     
 }
