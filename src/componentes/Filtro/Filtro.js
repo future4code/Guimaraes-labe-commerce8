@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const FilterConteiner = styled.div`
-  border: 1px solid;
   padding: 8px;
-  width: 300px;
+  width: 250px;
+  background-color: #7588b5;
 `;
 
 const InputConteiner = styled.div`

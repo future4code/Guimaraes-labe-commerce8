@@ -1,8 +1,29 @@
 import React from "react";
+import styled from "styled-components";
 import Carrinho from "./componentes/Carrinho/Carrinho";
 import Produtos from "./componentes/Produtos/Produtos";
 import Filtro from "./componentes/Filtro/Filtro";
 import Header from "./componentes/Header/Header";
+
+const ContainerPage = styled.div`
+  background-image: url("img/background-page.jpg");
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr ;
+`
+const ContainerFiltro = styled.div`
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin-top: 200px;
+`
+const ContainerCarrinho =styled.div`
+  grid-column: 7/8;
+  grid-row: 1/2;
+  margin-top: 200px;
+`
+const ContainerProdutos = styled.div`
+margin-top: 500px;
+`
 class App extends React.Component {
   state = {
     valorMinimo: "",
@@ -136,12 +157,24 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className="App">
+      <ContainerPage>
         <Header />
+        <ContainerFiltro>
+        <Filtro
+          filtraPorNome={this.filtraPorNome}
+          filtraValorMaximo={this.filtraValorMaximo}
+          filtrarValorMinimo={this.filtrarValorMinimo}
+          classificacaoDosProdutos={this.state.classificacaoDosProdutos}
+          classificarProdutos={this.classificarProdutos}
+        />
+        </ContainerFiltro>
+        <ContainerCarrinho>
         <Carrinho
           produtosCarrinho={this.state.produtosCarrinho}
           removerProduto={this.removerProduto}
         />
+        </ContainerCarrinho>
+        <ContainerProdutos>
         <Produtos
           produtos={this.state.produtos}
           adicionarProdutoNoCarrinho={this.adicionarProdutoNoCarrinho}
@@ -154,14 +187,10 @@ class App extends React.Component {
           classificarProdutos={this.classificarProdutos}
           classificacaoDosProdutos={this.state.classificacaoDosProdutos}
         ></Produtos>
-        <Filtro
-          filtraPorNome={this.filtraPorNome}
-          filtraValorMaximo={this.filtraValorMaximo}
-          filtrarValorMinimo={this.filtrarValorMinimo}
-          classificacaoDosProdutos={this.state.classificacaoDosProdutos}
-          classificarProdutos={this.classificarProdutos}
-        />
-      </div>
+        </ContainerProdutos>
+       
+        
+      </ContainerPage>
     );
   }
 }

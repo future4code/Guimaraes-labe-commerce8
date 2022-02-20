@@ -9,13 +9,13 @@ const ContainerPai = styled.div`
 `;
 const CardProduto = styled.div`
   background-color: #7588b5;
-  height: 30vw;
-  width: 30vh;
+  height: auto;
+  width: 200px;
   margin: 15px;
 `;
 const FotoProduto = styled.img`
-  width: auto;
-  height: 15vh;
+  width: 100px;
+  height: auto;
   padding: 30px;
   align-self: center;
 `;
