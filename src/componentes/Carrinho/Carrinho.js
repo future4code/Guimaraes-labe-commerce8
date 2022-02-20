@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ItemCarrinho from "./componentes/ItemCarrinho/ItemCarrinho"
-
+import ItemCarrinho from "../Carrinho/ItemCarrinho/";
 const CarrinhoContainer = styled.div`
   background-color: #7588b5;
   width: 45vh;
